@@ -39,7 +39,7 @@ namespace Counter.WindowsFormsApp
             var counter = new Counting();
             int countNumber = Decimal.ToInt32(countNumberBox.Value);
             int intervalTime = Int32.Parse(intervalTimeBox.Text);
-            counter.Count(countNumber, intervalTime, () => counterResultBox.AppendText(Counting.currentNumber.ToString()+"\n"));
+            counter.Count(countNumber, intervalTime, (x) => counterResultBox.AppendText(x+"\n"));
         }
 
         private void ClearButton_Click(object sender, EventArgs e)

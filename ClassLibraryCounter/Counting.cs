@@ -8,13 +8,11 @@ namespace Counter.ClassLibrary
 {
     public class Counting
     {
-        public static int currentNumber;
-        public void Count(int countNumber, int interval, Action callback)
+        public void Count(int countNumber, int interval, Action<int> callback)
         {
             for (int i = 1; i <= countNumber; i++)
             {
-                currentNumber = i;
-                callback();
+                callback(i);
                 System.Threading.Thread.Sleep(interval);        
             }
         }
