@@ -24,6 +24,8 @@ namespace Counter.WindowsFormsApp
             countTextBox.Enabled = false;
             startButton.Enabled = true;
             intervalTimeBox.Enabled = true;
+            numberButton.Enabled = false;
+            textButton.Enabled = false;
         }
 
         private void TextButton_Click(object sender, EventArgs e)
@@ -32,18 +34,44 @@ namespace Counter.WindowsFormsApp
             countNumberBox.Enabled = false;
             startButton.Enabled = true;
             intervalTimeBox.Enabled = true;
+            numberButton.Enabled = false;
+            textButton.Enabled = false;
         }
 
         private void StartButton_Click(object sender, EventArgs e)
         {
             var counter = new Counting();
-            int countNumber = Decimal.ToInt32(countNumberBox.Value);
-            int intervalTime = Int32.Parse(intervalTimeBox.Text);
-            counter.Count(countNumber, intervalTime, (x) => counterResultBox.AppendText(x+"\n"));
+            var textinput = new EnglishToInt();
+            int countNumber = 0;
+            if (countNumberBox.Enabled == true)
+            {
+                countNumber = Decimal.ToInt32(countNumberBox.Value);
+            }
+            else if (countTextBox.Enabled == true)
+            {
+                countNumber = (int)textinput.WordtoNumb(countTextBox.Text);
+            }
+            try
+            {
+                int intervalTime = Int32.Parse(intervalTimeBox.Text);
+                counter.Count(countNumber, intervalTime, (x) => counterResultBox.AppendText(x + "\n"));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void ClearButton_Click(object sender, EventArgs e)
+        private void ResetButton_Click(object sender, EventArgs e)
         {
+            numberButton.Enabled = true;
+            textButton.Enabled = true;
+            countTextBox.Enabled = false;
+            countNumberBox.Enabled = false;
+            intervalTimeBox.Enabled = false;
+            countTextBox.Text = "";
+            countNumberBox.Value = 1;
+            intervalTimeBox.Text = "";
             counterResultBox.Clear();
         }
     }

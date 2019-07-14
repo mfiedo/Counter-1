@@ -39,7 +39,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.numberButton = new System.Windows.Forms.Button();
             this.textButton = new System.Windows.Forms.Button();
-            this.clearButton = new System.Windows.Forms.Button();
+            this.resetButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.countNumberBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,7 +105,7 @@
             // startButton
             // 
             this.startButton.Enabled = false;
-            this.startButton.Location = new System.Drawing.Point(211, 54);
+            this.startButton.Location = new System.Drawing.Point(587, 249);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(102, 37);
             this.startButton.TabIndex = 6;
@@ -159,22 +159,22 @@
             this.textButton.UseVisualStyleBackColor = true;
             this.textButton.Click += new System.EventHandler(this.TextButton_Click);
             // 
-            // clearButton
+            // resetButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(28, 358);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(285, 23);
-            this.clearButton.TabIndex = 14;
-            this.clearButton.Text = "Clear";
-            this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            this.resetButton.Location = new System.Drawing.Point(28, 358);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(285, 23);
+            this.resetButton.TabIndex = 14;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 395);
-            this.Controls.Add(this.clearButton);
+            this.ClientSize = new System.Drawing.Size(842, 395);
+            this.Controls.Add(this.resetButton);
             this.Controls.Add(this.textButton);
             this.Controls.Add(this.numberButton);
             this.Controls.Add(this.label4);
@@ -206,7 +206,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button numberButton;
         private System.Windows.Forms.Button textButton;
-        private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Button resetButton;
     }
 }
 
