@@ -13,6 +13,7 @@ namespace Counter.WindowsFormsApp
 {
     public partial class Form1 : Form
     {
+        List<CounterData> counterList = new List<CounterData>();
         public Form1()
         {
             InitializeComponent();
@@ -41,25 +42,14 @@ namespace Counter.WindowsFormsApp
         private void StartButton_Click(object sender, EventArgs e)
         {
             var counter = new Counting();
-            var textinput = new EnglishToInt();
-            int countNumber = 0;
-            if (countNumberBox.Enabled == true)
+            foreach (var singleCounter in counterList)
             {
-                countNumber = Decimal.ToInt32(countNumberBox.Value);
+                Task task = Task.Factory.StartNew(() =>
+                    counter.Count(singleCounter.countNumber, singleCounter.intervalTime, (currentStatus) =>
+                        counterResultBox.Invoke(new Action(() =>
+                            counterResultBox.AppendText(currentStatus + "\n")))));
             }
-            else if (countTextBox.Enabled == true)
-            {
-                countNumber = (int)textinput.WordtoNumb(countTextBox.Text);
-            }
-            try
-            {
-                int intervalTime = Int32.Parse(intervalTimeBox.Text);
-                counter.Count(countNumber, intervalTime, (x) => counterResultBox.AppendText(x + "\n"));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
         }
 
         private void ResetButton_Click(object sender, EventArgs e)
@@ -72,7 +62,26 @@ namespace Counter.WindowsFormsApp
             countTextBox.Text = "";
             countNumberBox.Value = 1;
             intervalTimeBox.Text = "";
+            counterListBox.Clear();
             counterResultBox.Clear();
+            counterList.Clear();
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            CounterData singleCounter = new CounterData();
+            var textinput = new EnglishToInt();
+            if (countNumberBox.Enabled == true)
+            {
+                singleCounter.countNumber = Decimal.ToInt32(countNumberBox.Value);
+            }
+            else if (countTextBox.Enabled == true)
+            {
+                singleCounter.countNumber = (int)textinput.WordtoNumb(countTextBox.Text);
+            }
+            singleCounter.intervalTime = Int32.Parse(intervalTimeBox.Text);
+            counterList.Add(singleCounter);
+            counterListBox.AppendText("Counter #" + (counterList.IndexOf(singleCounter)+1) + ": iterations - " + singleCounter.countNumber + ", delay - " + singleCounter.intervalTime + " ms\n");
         }
     }
 }

@@ -40,6 +40,9 @@
             this.numberButton = new System.Windows.Forms.Button();
             this.textButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
+            this.counterListBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.countNumberBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,20 +97,20 @@
             // 
             // counterResultBox
             // 
-            this.counterResultBox.Location = new System.Drawing.Point(28, 117);
+            this.counterResultBox.Location = new System.Drawing.Point(328, 117);
             this.counterResultBox.Multiline = true;
             this.counterResultBox.Name = "counterResultBox";
             this.counterResultBox.ReadOnly = true;
             this.counterResultBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.counterResultBox.Size = new System.Drawing.Size(285, 235);
+            this.counterResultBox.Size = new System.Drawing.Size(166, 235);
             this.counterResultBox.TabIndex = 5;
             // 
             // startButton
             // 
             this.startButton.Enabled = false;
-            this.startButton.Location = new System.Drawing.Point(587, 249);
+            this.startButton.Location = new System.Drawing.Point(328, 12);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(102, 37);
+            this.startButton.Size = new System.Drawing.Size(166, 78);
             this.startButton.TabIndex = 6;
             this.startButton.Text = "Start";
             this.startButton.UseVisualStyleBackColor = true;
@@ -133,11 +136,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 101);
+            this.label4.Location = new System.Drawing.Point(325, 101);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.Size = new System.Drawing.Size(72, 13);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Result";
+            this.label4.Text = "Current status";
             // 
             // numberButton
             // 
@@ -163,17 +166,49 @@
             // 
             this.resetButton.Location = new System.Drawing.Point(28, 358);
             this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(285, 23);
+            this.resetButton.Size = new System.Drawing.Size(466, 23);
             this.resetButton.TabIndex = 14;
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(211, 54);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(101, 35);
+            this.addButton.TabIndex = 15;
+            this.addButton.Text = "Add";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
+            // counterListBox
+            // 
+            this.counterListBox.Location = new System.Drawing.Point(28, 117);
+            this.counterListBox.Multiline = true;
+            this.counterListBox.Name = "counterListBox";
+            this.counterListBox.ReadOnly = true;
+            this.counterListBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.counterListBox.Size = new System.Drawing.Size(285, 235);
+            this.counterListBox.TabIndex = 16;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(25, 101);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Counters list";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 395);
+            this.ClientSize = new System.Drawing.Size(516, 395);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.counterListBox);
+            this.Controls.Add(this.addButton);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.textButton);
             this.Controls.Add(this.numberButton);
@@ -207,6 +242,9 @@
         private System.Windows.Forms.Button numberButton;
         private System.Windows.Forms.Button textButton;
         private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.TextBox counterListBox;
+        private System.Windows.Forms.Label label5;
     }
 }
 
