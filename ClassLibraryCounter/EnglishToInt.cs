@@ -13,6 +13,7 @@ namespace Counter.ClassLibrary
             if (string.IsNullOrEmpty(wordnum)) return 0;
 
             wordnum = wordnum.Trim();
+            wordnum = wordnum.Replace("-", " ");
             wordnum += ' ';
 
             double number = 0;
